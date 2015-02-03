@@ -33,22 +33,17 @@ class Brainfuck(object):
     def next(self):
         if self.code[self.ci] == '>':
             self.right()
-            self.ci += 1
         elif self.code[self.ci] == '<':
             self.left()
-            self.ci += 1
         elif self.code[self.ci] == '+':
             self.plus()
-            self.ci += 1
         elif self.code[self.ci] == '-':
             self.minus()
-            self.ci += 1
         elif self.code[self.ci] == '.':
             self.output()
-            self.ci += 1
         elif self.code[self.ci] == ',':
             self.input()
-            self.ci += 1
+        self.ci += 1
 
     def run(self):
         while self.ci != len(self.code):
