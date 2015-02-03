@@ -14,3 +14,11 @@ def left():
     if not i:
         raise IndexError('index can\'t be negative')
     i -= 1
+
+
+def plus():
+    data[i] += 1
+
+
+def minus():
+    data[i] -= 1
