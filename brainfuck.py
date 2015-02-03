@@ -4,8 +4,8 @@ class Brainfuck(object):
         self.i = 0
         self.code = ''
         self.ci = 0
-        self.input = ''
-        self.ii = 0
+        self.text = ''
+        self.ti = 0
 
     def right(self):
         self.i += 1
