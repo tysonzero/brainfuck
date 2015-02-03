@@ -1,24 +1,20 @@
-data = [0]
-i = 0
+class Brainfuck(object):
+    def __init__(self):
+        self.data = [0]
+        self.i = 0
 
+    def right(self):
+        self.i += 1
+        if self.i == len(self.data):
+            self.data.append(0)
 
-def right():
-    global i
-    i += 1
-    if i == len(data):
-        data.append(0)
+    def left(self):
+        if not self.i:
+            raise IndexError('index can\'t be negative')
+        self.i -= 1
 
+    def plus(self):
+        self.data[self.i] += 1
 
-def left():
-    global i
-    if not i:
-        raise IndexError('index can\'t be negative')
-    i -= 1
-
-
-def plus():
-    data[i] += 1
-
-
-def minus():
-    data[i] -= 1
+    def minus(self):
+        self.data[self.i] -= 1
