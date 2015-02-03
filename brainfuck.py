@@ -26,8 +26,9 @@ class Brainfuck(object):
     def output(self):
         print chr(self.data[self.i])
 
-    def input(self, char):
-        self.data[self.i] = ord(char)
+    def input(self):
+        self.data[self.i] = ord(self.text[self.ti])
+        self.ti += 1
 
     def next(self):
         if self.code[self.ci] == '>':
