@@ -48,3 +48,7 @@ class Brainfuck(object):
         elif self.code[self.ci] == ',':
             self.input()
             self.ci += 1
+
+    def run(self):
+        while self.ci != len(self.code):
+            self.next()
