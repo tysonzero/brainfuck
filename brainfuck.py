@@ -28,3 +28,23 @@ class Brainfuck(object):
 
     def input(self, char):
         self.data[self.i] = ord(char)
+
+    def next(self):
+        if self.code[self.ci] == '>':
+            self.right()
+            self.ci += 1
+        elif self.code[self.ci] == '<':
+            self.left()
+            self.ci += 1
+        elif self.code[self.ci] == '+':
+            self.plus()
+            self.ci += 1
+        elif self.code[self.ci] == '-':
+            self.minus()
+            self.ci += 1
+        elif self.code[self.ci] == '.':
+            self.output()
+            self.ci += 1
+        elif self.code[self.ci] == ',':
+            self.input()
+            self.ci += 1
