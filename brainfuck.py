@@ -2,6 +2,10 @@ class Brainfuck(object):
     def __init__(self):
         self.data = [0]
         self.i = 0
+        self.code = ''
+        self.ci = 0
+        self.input = ''
+        self.ii = 0
 
     def right(self):
         self.i += 1
