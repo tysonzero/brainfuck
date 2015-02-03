@@ -57,6 +57,10 @@ class Brainfuck(object):
             self.output()
         elif self.code[self.ci] == ',':
             self.input()
+        elif self.code[self.ci] == '[':
+            self.start()
+        elif self.code[self.ci] == ']':
+            self.end()
         self.ci += 1
 
     def run(self):
