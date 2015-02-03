@@ -30,6 +30,20 @@ class Brainfuck(object):
         self.data[self.i] = ord(self.text[self.ti])
         self.ti += 1
 
+    def start(self):
+        if not self.data[self.i]:
+            for i in xrange(self.ci + 1, len(self.code)):
+                if self.code[self.ci:i+1].count('[') == self.code[self.ci:i+1].count(']'):
+                    self.ci = i
+                    return
+
+    def end(self):
+        if self.data[self.i]:
+            for i in reversed(xrange(1, self.ci)):
+                if self.code[i:self.ci+1].count('[') == self.code[i:self.ci+1].count(']'):
+                    self.ci = i
+                    return
+
     def next(self):
         if self.code[self.ci] == '>':
             self.right()
