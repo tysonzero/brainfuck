@@ -18,3 +18,9 @@ class Brainfuck(object):
 
     def minus(self):
         self.data[self.i] -= 1
+
+    def output(self):
+        print chr(self.data[self.i])
+
+    def input(self, char):
+        self.data[self.i] = ord(char)
