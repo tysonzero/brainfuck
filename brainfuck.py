@@ -66,3 +66,11 @@ class Brainfuck(object):
     def run(self):
         while self.ci != len(self.code):
             self.next()
+
+
+if __name__ == '__main__':
+    brainfuck = Brainfuck()
+    while True:
+        brainfuck.code += raw_input()
+        brainfuck.run()
+        print ' '.join('({})'.format(brainfuck.data[i]) if i == brainfuck.i else str(brainfuck.data[i]) for i in xrange(len(brainfuck.data)))
