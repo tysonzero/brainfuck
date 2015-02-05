@@ -44,6 +44,9 @@ class Brainfuck(object):
                     self.ci = i
                     return
 
+    def debug(self):
+        print ' '.join('({})'.format(brainfuck.data[i]) if i == brainfuck.i else str(brainfuck.data[i]) for i in xrange(len(brainfuck.data)))
+
     def next(self):
         if self.code[self.ci] == '>':
             self.right()
@@ -73,4 +76,4 @@ if __name__ == '__main__':
     while True:
         brainfuck.code += raw_input()
         brainfuck.run()
-        print ' '.join('({})'.format(brainfuck.data[i]) if i == brainfuck.i else str(brainfuck.data[i]) for i in xrange(len(brainfuck.data)))
+        brainfuck.debug()
