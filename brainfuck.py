@@ -48,24 +48,17 @@ class Brainfuck(object):
         print ' '.join('({})'.format(brainfuck.data[i]) if i == brainfuck.i else str(brainfuck.data[i]) for i in xrange(len(brainfuck.data)))
 
     def next(self):
-        if self.code[self.ci] == '>':
-            self.right()
-        elif self.code[self.ci] == '<':
-            self.left()
-        elif self.code[self.ci] == '+':
-            self.plus()
-        elif self.code[self.ci] == '-':
-            self.minus()
-        elif self.code[self.ci] == '.':
-            self.output()
-        elif self.code[self.ci] == ',':
-            self.input()
-        elif self.code[self.ci] == '[':
-            self.start()
-        elif self.code[self.ci] == ']':
-            self.end()
-        elif self.code[self.ci] == '#':
-            self.debug()
+        {
+            '>': self.right,
+            '<': self.left,
+            '+': self.plus,
+            '-': self.minus,
+            '.': self.output,
+            ',': self.input,
+            '[': self.start,
+            ']': self.end,
+            '#': self.debug,
+        }.get(self.code[self.ci], lambda: None)()
         self.ci += 1
 
     def run(self):
