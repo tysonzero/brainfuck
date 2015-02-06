@@ -1,6 +1,6 @@
 class Brainfuck(object):
-    def __init__(self, data=None, code='', text=''):
-        self.data = data or [0]
+    def __init__(self, code='', text=''):
+        self.data = [0]
         self.i = 0
         self.code = code
         self.ci = 0
