@@ -1,3 +1,6 @@
+from sys import argv
+
+
 class Brainfuck(object):
     def __init__(self, code='', text=''):
         self.data = [0]
@@ -67,8 +70,17 @@ class Brainfuck(object):
 
 
 if __name__ == '__main__':
-    brainfuck = Brainfuck()
-    while True:
-        brainfuck.code += raw_input()
-        brainfuck.run()
-        brainfuck.debug()
+    if len(argv) == 1:
+        print
+        print 'Available Commands:'
+        print 'debug'
+        print 'run [code] [text]'
+        print
+    elif argv[1] == 'debug':
+        brainfuck = Brainfuck()
+        while True:
+            brainfuck.code += raw_input()
+            brainfuck.run()
+            brainfuck.debug()
+    elif argv[1] == 'run':
+        Brainfuck(code=argv[2] if len(argv) > 2 else '', text=argv[3] if len(argv) > 3 else '').run()
