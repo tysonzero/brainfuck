@@ -45,7 +45,7 @@ class Brainfuck(object):
                     return
 
     def debug(self):
-        print ' '.join('({})'.format(brainfuck.data[i]) if i == brainfuck.i else str(brainfuck.data[i]) for i in xrange(len(brainfuck.data)))
+        print ' '.join('({})'.format(self.data[i]) if i == self.i else str(self.data[i]) for i in xrange(len(self.data)))
 
     def next(self):
         {
