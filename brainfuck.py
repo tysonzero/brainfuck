@@ -73,11 +73,11 @@ if __name__ == '__main__':
     if len(argv) == 1:
         print
         print 'Available Commands:'
-        print 'debug'
+        print 'debug [text]'
         print 'run [code] [text]'
         print
     elif argv[1] == 'debug':
-        brainfuck = Brainfuck()
+        brainfuck = Brainfuck(text=argv[2] if len(argv) > 2 else '')
         while True:
             brainfuck.code += raw_input()
             brainfuck.run()
