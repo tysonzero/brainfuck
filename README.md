@@ -13,4 +13,4 @@ Example command line usage:
 Example python usage:
 
     from brainfuck import Brainfuck
-    Brainfuck(code=',[>+<-]>.', text='A').run()
+    print Brainfuck(code=',[>+<-]>.', text='A').run()
