@@ -11,6 +11,7 @@ class Brainfuck(object):
         self.ci = 0
         self.text = text
         self.ti = 0
+        self.result = ''
 
     def right(self):
         self.i += 1
@@ -29,7 +30,7 @@ class Brainfuck(object):
         self.data[self.i] -= 1
 
     def output(self):
-        print chr(self.data[self.i])
+        self.result += chr(self.data[self.i])
 
     def input(self):
         self.data[self.i] = ord(self.text[self.ti])
@@ -50,7 +51,7 @@ class Brainfuck(object):
                     return
 
     def debug(self):
-        print ' '.join('({})'.format(self.data[i]) if i == self.i else str(self.data[i]) for i in xrange(len(self.data)))
+        return ' '.join('({})'.format(self.data[i]) if i == self.i else str(self.data[i]) for i in xrange(len(self.data)))
 
     def next(self):
         {
@@ -69,6 +70,7 @@ class Brainfuck(object):
     def run(self):
         while self.ci != len(self.code):
             self.next()
+        return self.result
 
 
 if __name__ == '__main__':
@@ -82,7 +84,7 @@ if __name__ == '__main__':
         brainfuck = Brainfuck(text=argv[2] if len(argv) > 2 else '')
         while True:
             brainfuck.code += raw_input()
-            brainfuck.run()
-            brainfuck.debug()
+            print brainfuck.run()
+            print brainfuck.debug()
     elif argv[1] == 'run':
-        Brainfuck(code=argv[2] if len(argv) > 2 else '', text=argv[3] if len(argv) > 3 else '').run()
+        print Brainfuck(code=argv[2] if len(argv) > 2 else '', text=argv[3] if len(argv) > 3 else '').run()
