@@ -20,7 +20,7 @@ class Brainfuck(object):
 
     def left(self):
         if not self.i:
-            raise IndexError('index can\'t be negative')
+            raise IndexError("index can't be negative")
         self.i -= 1
 
     def plus(self):
